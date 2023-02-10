@@ -1,8 +1,4 @@
 import socket
-try:
-    import win_ntp
-except ImportError:
-    import unix_ntp
     
 #Windows ntp
 try:
@@ -11,7 +7,7 @@ except:
     pass
 
 #Unix ntp
-#Will do it on it;'s own, becuase of unix magic
+#Will do it on it's own, becuase of unix magic
 
 NAME = socket.gethostname()
 T_IP = socket.gethostbyname(NAME)
@@ -28,3 +24,8 @@ print("""\
                                                                __/ |                                                                                       
                                                               |___/                                                                                            
 """, NAME, T_IP,)
+
+try:
+    import win_ntp
+except ImportError:
+    import unix_ntp
